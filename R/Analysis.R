@@ -1,4 +1,5 @@
 # code for analyses in Zwart et al. In Review 
+<<<<<<< HEAD
 thermocline<-read.table('thermocline.txt',header=T,stringsAsFactor=F,row.names=NULL)
 thermocline$datetime<-as.POSIXct(paste(thermocline$row.names,thermocline$datetime))
 thermocline<-thermocline[,c(2:6)]
@@ -81,4 +82,17 @@ tkD<-t.test((kd$kd[kd$lakeID=='EL'&strftime(kd$datetime,'%Y')%in%c(2011,2012)]-
                kd$kd[kd$lakeID=='WL'&strftime(kd$datetime,'%Y')%in%c(2011,2012)]),
             (kd$kd[kd$lakeID=='EL'&strftime(kd$datetime,'%Y')%in%c(2013,2014)]-
                kd$kd[kd$lakeID=='WL'&strftime(kd$datetime,'%Y')%in%c(2013,2014)]))
+=======
+
+
+# add EL / WL distinction 
+tThermo<-t.test((thermocline$thermo.depth[thermocline$lakeID=='EL'&strftime(thermocline$datetime,'%Y')%in%c(2011,2012)]-
+thermocline$thermo.depth[thermocline$lakeID=='WL'&strftime(thermocline$datetime,'%Y')%in%c(2011,2012)]),
+(thermocline$thermo.depth[thermocline$lakeID=='EL'&strftime(thermocline$datetime,'%Y')%in%c(2013,2014)]-
+thermocline$thermo.depth[thermocline$lakeID=='WL'&strftime(thermocline$datetime,'%Y')%in%c(2013,2014)]))
+
+tzMix<-t.test((thermocline$meta.top-thermocline$meta.top),(post1$top-post2$top))
+
+
+>>>>>>> bbf4bea17593fbce5a2f9cd0f40607dd7a73449d
 
