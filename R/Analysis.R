@@ -13,6 +13,7 @@ lightClimate<-read.table('lightClimate.txt',header=T,stringsAsFactor=F)
 pH<-read.table('pH.txt',header=T,stringsAsFactor=F)
 poc<-read.table('poc.txt',header=T,stringsAsFactor=F)
 wholeLakeTemp<-read.table('wholeLakeTemp.txt',header=T,stringsAsFactor=F)
+Fe<-read.table('Fe.txt',header=T,stringsAsFactor=F)
 EL_metab<-read.table('EL_metab.txt',header=T,stringsAsFactor=F)
 WL_metab<-read.table('WL_metab.txt',header=T,stringsAsFactor=F)
 
@@ -81,6 +82,12 @@ tkD<-t.test((kd$kd[kd$lakeID=='EL'&strftime(kd$datetime,'%Y')%in%c(2011,2012)]-
                kd$kd[kd$lakeID=='WL'&strftime(kd$datetime,'%Y')%in%c(2011,2012)]),
             (kd$kd[kd$lakeID=='EL'&strftime(kd$datetime,'%Y')%in%c(2013,2014)]-
                kd$kd[kd$lakeID=='WL'&strftime(kd$datetime,'%Y')%in%c(2013,2014)]))
+
+tFe<-t.test((Fe$Fe[Fe$lakeID=='EL'&strftime(Fe$datetime,'%Y')%in%c(2011,2012)]-
+               Fe$Fe[Fe$lakeID=='WL'&strftime(Fe$datetime,'%Y')%in%c(2011,2012)]),
+            (Fe$Fe[Fe$lakeID=='EL'&strftime(Fe$datetime,'%Y')%in%c(2013,2014)]-
+               Fe$Fe[Fe$lakeID=='WL'&strftime(Fe$datetime,'%Y')%in%c(2013,2014)]))
+
 
 ## Metabolism analyses 
 # run 1000 welch's t-tests for metabolism data incorporating uncertainty 
